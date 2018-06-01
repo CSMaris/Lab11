@@ -27,6 +27,13 @@ public class BarController {
 
     @FXML
     void doSimulazione(ActionEvent event) {
+    	model.init();
+    	int numClienti=model.getTotClienti();
+    	int numClientiSoddisfatti=model.getTotClientiSoddisfatti();
+    	int numClientiInsoddisfatti=model.getTotClientiInsoddisfatti();
+    	
+    	txtResult.setText("Tot clienti: "+numClienti+"\n Tot clienti soddisfatti: "+numClientiSoddisfatti+"\n"
+    			+ "Tot clienti non soddisfatti: "+numClientiInsoddisfatti);
 
     }
 
@@ -36,4 +43,10 @@ public class BarController {
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Bar.fxml'.";
 
     }
+    private Simulatore model;
+	public void setModel(Simulatore model) {
+		this.model=model;
+		
+		
+	}
 }

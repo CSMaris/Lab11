@@ -2,7 +2,7 @@ package it.polito.tdp.bar;
 
 import java.time.LocalTime;
 
-public class Event {
+public class Event implements Comparable<Event> {
 	private LocalTime ora ;
 	private EventType tipo ;
 	
@@ -26,7 +26,13 @@ public class Event {
 	public GruppoClienti getGruppo() {
 		return gruppo;
 	}
-	
+
+	@Override
+	public int compareTo(Event o) {
+		return this.ora.compareTo(o.ora);
+	}
+
+
 	
 	
 	

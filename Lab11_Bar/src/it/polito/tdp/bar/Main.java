@@ -1,8 +1,5 @@
 package it.polito.tdp.bar;
 	
-
-
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -17,6 +14,9 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Bar.fxml"));
 			BorderPane root = (BorderPane) loader.load();
 			BarController controller = loader.getController();
+			
+			Simulatore model=new Simulatore();
+			((BarController)loader.getController()).setModel(model) ;
 			
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
